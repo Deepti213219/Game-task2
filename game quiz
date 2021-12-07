@@ -1,0 +1,30 @@
+const input=require("readline-sync")
+
+var question_list=["How many continents are there ?","What is the capital of India ?",
+"NG mei kaun se course padhaya jaata hai ? "]
+
+var options_list=[["Four","Nine","Seven","Eight"],
+["Chandigarh","Bhopal","Chennai","Delhi"],
+["Software Engineering","Counseling","Tourism",
+"Agriculture"]]
+
+
+var solution_list=[3,4,1]
+var i=0
+while (i< question_list.length ){
+	console.log("Q.",question_list[i]);
+	var j=0
+	while (j< options_list[i].length){
+		console.log(options_list[i][j])
+		j++
+	}	
+
+	let user=input.questionInt(" ");
+	if (user==solution_list[i]){
+		console.log("congrates your ans is correct");
+	}else {
+		console.log("your ans is wrong");
+	}
+    i++
+    
+}
