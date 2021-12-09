@@ -1,30 +1,40 @@
 const input=require("readline-sync")
-
-var question_list=["How many continents are there ?","What is the capital of India ?",
-"NG mei kaun se course padhaya jaata hai ? "]
-
-var options_list=[["Four","Nine","Seven","Eight"],
-["Chandigarh","Bhopal","Chennai","Delhi"],
-["Software Engineering","Counseling","Tourism",
-"Agriculture"]]
-
-
-var solution_list=[3,4,1]
-var i=0
-while (i< question_list.length ){
-	console.log("Q.",question_list[i]);
-	var j=0
-	while (j< options_list[i].length){
-		console.log(options_list[i][j])
-		j++
-	}	
-
-	let user=input.questionInt(" ");
-	if (user==solution_list[i]){
-		console.log("congrates your ans is correct");
-	}else {
-		console.log("your ans is wrong");
-	}
-    i++
+var score=0
+const user_name=input.question("What is your name: = ")
+console.log(" Welcome "+user_name+" to do you know Deepti?")
+let answer=input.question("Enter 'yes' or 'no':= ")
+if (answer=="yes"){
+    function game(ques,ans){
+        let userAnser=input.question(ques)
+        if (userAnser==ans){
+            score=score+1
+            console.log("right")
+        }else{
+            console.log("wrong")
+        }
+    }
     
+    game("what I am doing..","study")
+    game("my favoute superhero would be..","My Father")
+     
+    var questions =[{
+        question:"where do I live?",
+        answer:"banglore"
+    },{
+        question:"what I like to do?",
+        answer:"playing game"
+    },{
+        question:"Where do I study ?",
+        answer: "Navgurukul"
+    }]
+    
+    for (let i=0;i<questions.length;i++){
+        var currentquestion=questions[i]
+        game(currentquestion.question,currentquestion.answer)
+    }
+    
+    console.log("your final score",score)
+}
+else{
+    console.log("your score is 0")
 }
